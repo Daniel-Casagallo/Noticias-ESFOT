@@ -30,15 +30,6 @@
     </ion-toolbar>
   </ion-segment>
 
-<!-- <ion-segment value="Noticias">
-  <ion-segment-button mode="md"
-                      *ngFor = "let tipo of tipos"
-                      [value]="tipo"
-                      (click) = "EncabeadoCategoria(tipo)">                      
-    <ion-label text-capitalize>{{tipo}}</ion-label>
-  </ion-segment-button>
-</ion-segment> -->
-
 <ion-segment scrollable value="Noticias">
   <ion-segment-button mode="md"
                       *ngFor = "let tipo of usuario.grupos"
@@ -60,16 +51,5 @@
 
   <!-- Posts -->
    <app-posts [publicaciones]="publicaciones"></app-posts>
-   <!-- <app-posts [posts]="posts"></app-posts> -->
 
-
-  <!-- Infinite Scroll 
-
-  <ion-infinite-scroll  [disabled] = "!habilitado"
-                        threshold="150px"
-                        (ionInfinite)="siguientes($event)">
-      <ion-infinite-scroll-content>
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
--->
 </ion-content>

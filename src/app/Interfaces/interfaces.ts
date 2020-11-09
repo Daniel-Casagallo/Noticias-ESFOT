@@ -54,51 +54,6 @@ export class Usuario {
   grupos?: [];
 }
 
-/*
-export interface Publicacion {
-  // idPost: string
-  // tipoPost: string
-  // categoriaPost: string
-
-  id?: string;
-  estado?: string;
-  titulo?: string;
-  autor?: string;
-  categoria?: string;
-  visualizaciones?: string;
-  fecha?: string;
-  fechaEvento?: Date;
-  descripcion?: string;
-  imagen?: string;
-}
-*/
-
-/*
-
-export interface Publicacion {
-
-  idPost?: string;
-  tipoPost?: string;
-  categoriaPost?: string;
-  estadoPost?: string;
-  tituloPost?: string;
-  autorNamePost?: string;
-  viewsPost?: string;
-  fechaPost?: string;
-  fechaInicioPost?: Time;
-  fechaFinPost?: Time;
-  descripcionPost?: string;
-  imagenPost?: any[];
-  autorIdPost?: string;
-  autorImagenPost?: string;
-  docsPost?: any[];
-  ytUrlPost?: string[];
-  lugarPost?: string;
-  numTelfPost?: string;
-  horainicioPost?: string;
-  horafinalPost?: string;
-  }
-*/
 
 export class Publicacion {
   idPost?: string;

@@ -123,24 +123,9 @@ public user$: Observable <any> = this.auth.afAuth.user;
         imagenPost: [{name: '', url: ''}],
         docsPost: [{name: '', url: ''}],
 
-
-/*
-
-        titulo: this.tituloPublicacion,
-        estado: 'Aprobado',
-        autor: this.usuario.nombre + ' ' + this.usuario.apellido,
-        visualizaciones: 25,
-        // fechaEvento: this.fechaEvento,
-        fecha: this.fechaPublicacion,
-        categoria: this.tipoEvento,
-        descripcion: this.descripcionPublicacion,
-        imagen: 'sdfghj'
-*/
-
       }).then(() => {
         this.router.navigate(['main/tabs/tab1']);
       });
-
 
     }
 
