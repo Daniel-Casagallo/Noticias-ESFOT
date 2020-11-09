@@ -1,0 +1,72 @@
+
+<div class="post">
+
+  <ion-item lines="none">
+
+    <ion-avatar slot="start">
+      <img src="/assets/avatars/av-1.png">
+    </ion-avatar>
+
+    <ion-label>
+      <!-- <h3>{{ post.author }}</h3> -->
+      <h2 class="titulo" >{{ publicacion.tituloPost }}</h2>
+      <h3>{{ publicacion.autorNamePost }}</h3>
+      <h3>{{ publicacion.categoriaPost }}</h3>
+      <h3>{{ publicacion.tipoPost }}</h3>
+      <h3>{{ publicacion.fechaPost }}</h3> 
+      <h3>{{ publicacion.idPost }}</h3> 
+    </ion-label>
+  </ion-item>
+
+
+  <!-- ngIf imgs.... -->
+  <ion-slides pager="true">
+
+      <ion-slide  class="image-slide">
+                  <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fevento.png?alt=media&token=1eb3fa46-f595-49e5-aa76-d6c862785ee1"></ion-img>
+                  
+      </ion-slide>
+
+      <ion-slide  class="image-slide"
+                  [style]=" img2 | domSanitizer ">
+      </ion-slide>
+
+      <ion-slide  class="image-slide"
+                  [style]=" img3 | domSanitizer ">
+      </ion-slide>
+
+  </ion-slides>
+  
+  <ion-item lines="none">
+    <ion-icon slot="start" name="eye-outline"></ion-icon> 
+    <ion-label slot="start">{{ publicacion.viewsPost }}</ion-label>
+    <ion-button slot="end"
+                fill= "clear"
+                (click)="compartir()">
+      <ion-icon name="share-social-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label text-wrap>
+        {{ publicacion.descripcionPost }}
+    </ion-label>
+  </ion-item>
+
+   <!-- href="/detalle-publicacion" -->
+  <ion-button shape="round"
+              expand="full"
+              size="small"
+              fill="outline"
+              color="tertiary" 
+              (click)="navegar()"
+              >
+              <!-- [routerLink]="['/detalle-publicacion', publicacion.idPost]" 
+              href="/detalle-publicacion" 
+              (click)="navegar()" -->
+          Ver mas
+  </ion-button>
+
+</div>
+
+

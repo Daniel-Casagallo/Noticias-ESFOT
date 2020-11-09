@@ -1,0 +1,129 @@
+<ion-header no-border>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button
+                  color="primary"
+                  href="/menu">
+        Regresar
+      </ion-button>
+    </ion-buttons>
+
+    <!-- [disabled]="publicacion.descripcion.length < 1" -->
+    <ion-buttons slot="end">
+      <ion-button type="submit"
+                  (click) = "guardarPublicacion( telefono1 )"
+                  color="primary">
+        Compartir
+      </ion-button>
+    </ion-buttons> 
+
+    <ion-title>
+      Nueva Publicación
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    
+    <!-- Pasar el Id de usuario -->
+ 
+    <ion-item>
+      <ion-label>Grupos</ion-label>
+      <ion-select #tipoGrupo cancelText="Cancelar" okText="Ok"  >
+        <ion-select-option value="tipo" *ngFor = "let tipo of usuario.grupos">{{tipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select #tipoPost cancelText="Cancelar" okText="Ok" [(ngModel)]="tipoPublicacion" >
+        <ion-select-option value="Noticias">Noticias</ion-select-option>
+        <ion-select-option value="Eventos">Eventos</ion-select-option>
+        <ion-select-option value="Solicitudes">Solicitudes</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item *ngIf="seleccionTipoPostNoticia()"> 
+      <ion-label>Categoría</ion-label>
+      <ion-select #categoriaNoticias cancelText="Cancelar" okText="Ok" [(ngModel)]="categoriaPublicacion" >
+        <ion-select-option value="Oferta laboral">Oferta Laboral</ion-select-option>
+        <ion-select-option value="Oferta de pasantias">Oferta de pasantias</ion-select-option>
+        <ion-select-option value="Actividad academica">Actividad academica</ion-select-option>
+        <ion-select-option value="Actividad cultural">Actividad cultural</ion-select-option>
+        <ion-select-option value="Comunicados oficiales">Comunicados oficiales</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="seleccionTipoPostAnuncio()"> 
+      <ion-label>Categoría</ion-label>
+      <ion-select #categoriaSolicitudes cancelText="Cancelar" okText="Ok" [(ngModel)]="categoriaPublicacion" >
+        <ion-select-option value="Problema">Problema</ion-select-option>
+        <ion-select-option value="Emergencia">Emergencia</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item *ngIf="seleccionTipoPostEvento()">
+      <ion-label>Fecha inicio</ion-label>
+      <ion-datetime displayFormat="D MMM YYYY H:mm" min="1997" max="2010" value="2005-06-17T11:06Z" [(ngModel)]="fechaEventoInicioPublicacion"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="seleccionTipoPostEvento()">
+      <ion-label>Fecha Fin</ion-label>
+      <ion-datetime displayFormat="D MMM YYYY H:mm" min="1997" max="2010" value="2005-06-17T11:06Z" [(ngModel)]="fechaEventoFinPublicacion"></ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="seleccionTipoPostEvento()"> 
+      <ion-label>Telefono: </ion-label>
+      <ion-input name="telefono1" type="text" #telefono1 required></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="seleccionCateoriaPostEmergencia()"> 
+      <ion-label>Telefono: </ion-label>
+      <ion-input name="telefono1" type="text" #telefono1 required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input name="titulo"
+                  #tituloNoticia
+                  type="text"
+                  required
+                  [(ngModel)]="tituloPublicacion"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="descripcionPublicacion" ></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="full"
+                  shape="round"
+                  (click) = "camara()">                  
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Cámara
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="full"
+                  shape="round"
+                  (click)="libreria()">
+        <ion-icon slot="start" name="images"></ion-icon>
+        Galería
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="3" *ngFor="let image of tempImages">
+      <ion-card>
+        <img [src]="image">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

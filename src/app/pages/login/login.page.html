@@ -1,0 +1,206 @@
+<ion-content>
+
+
+  <ion-slides class="mainSlide">
+    
+    <ion-slide>
+
+      <form>
+        <ion-grid fixed>
+
+          <ion-row>
+            <ion-col>
+              <img src="/assets/avatars/av-1.png">
+            </ion-col>
+          </ion-row>
+        
+          <ion-row>
+            <ion-col>
+              
+                <ion-list>
+                  
+                  <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input name="email"
+                                #LoginEmail
+                                type="email"
+                                required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input name="password"
+                                #LoginPassword
+                                type="password"
+                                required></ion-input>
+                  </ion-item>
+
+                </ion-list>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="onLogin( LoginEmail, LoginPassword)">
+                Login
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button href="/main/tabs/menu-invitado">
+                Invitado
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p class="ion-text-end">
+                <a  href="/forgot-password">Olvidaste tu contraseña?</a>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+  
+    </ion-slide>
+
+    <ion-slide>
+      
+      <ion-grid fixed>
+
+            <ion-row>
+            <ion-col>
+                <h3>Seleccione Avatar</h3>
+            </ion-col>
+            </ion-row>
+
+            <ion-row>
+            <ion-col>
+                <ion-slides>
+                <ion-slide *ngFor="let avatar of avatars">
+                    <ion-img class="pick-avatar" 
+                            src="/assets/avatars/{{ avatar.img }}"></ion-img>
+                </ion-slide>
+                </ion-slides>
+            </ion-col>
+            </ion-row>
+        
+            <form>
+                <ion-row>
+                    <ion-col>
+                        
+                        <ion-list>
+                            
+                            <ion-item>
+                            <ion-label>Email</ion-label>
+                            <ion-input name="email"
+                                        #RegistroEmail
+                                        type="email"
+                                        required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                            <ion-label>Nombre</ion-label>
+                            <ion-input name="nombre"
+                                        #RegistroNombre
+                                        type="text"
+                                        required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                              <ion-label>Apellido</ion-label>
+                              <ion-input name="apellido"
+                                          #RegistroApellido
+                                          type="text"
+                                          required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                              <ion-label>Rol</ion-label>
+                              <ion-select #RegistroRol cancelText="Cancelar" okText="Ok">
+                                <ion-select-option value="estudiate">Estudiante</ion-select-option>
+                                <ion-select-option value="docente">Docente</ion-select-option>
+                              </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                              <ion-label>Carrera</ion-label>
+                              <ion-select #RegistroCarrera cancelText="Cancelar" okText="Ok">
+                                <ion-select-option value="TSASA">TSASA</ion-select-option>
+                                <ion-select-option value="TSDS">TSDS</ion-select-option>
+                                <ion-select-option value="TSEM">TSEM</ion-select-option>
+                                <ion-select-option value="TSRT">TSRT</ion-select-option>
+                              </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                            <ion-label>Password</ion-label>
+                            <ion-input name="password"
+                                        #RegistroPassword
+                                        type="password"
+                                        required></ion-input>
+                            </ion-item>
+
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                
+                <ion-row>
+                <ion-col>
+                    <ion-button type="submit"
+                                color="tertiary"
+                                shape="round"
+                                expand="full"
+                                (click)="onRegister(RegistroEmail, RegistroNombre, RegistroApellido, RegistroRol, RegistroCarrera, RegistroPassword)">
+                        Crear usuario
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            
+            </form>
+        </ion-grid>
+  
+  
+      </ion-slide>
+
+
+  </ion-slides>
+
+
+
+</ion-content>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    
+    <ion-row>
+
+      <ion-col>
+          <ion-button shape="round"
+                      expand="full"
+                      size="small"
+                      fill="outline"
+                      color="tertiary">
+            Ingresar
+          </ion-button>
+      </ion-col>
+
+      <ion-col>
+        <ion-button shape="round"
+                    expand="full"
+                    size="small"
+                    fill="outline"
+                    color="tertiary">
+          Registrarme
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+
+
+  </ion-toolbar>
+</ion-footer>
